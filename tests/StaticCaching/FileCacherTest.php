@@ -57,12 +57,12 @@ class FileCacherTest extends TestCase
         ]);
 
         $this->assertEquals(
-            'test/path/foo/bar/baz/qux_a=b&c=d.html',
+            'test/path/domain.com/foo/bar/baz/qux_a=b&c=d.html',
             $cacher->getFilePath('http://domain.com/foo/bar/baz/qux?a=b&c=d')
         );
 
         $this->assertEquals(
-            'test/path/foo/bar_.html',
+            'test/path/domain.com/foo/bar_.html',
             $cacher->getFilePath('http://domain.com/foo/bar')
         );
     }
@@ -78,7 +78,7 @@ class FileCacherTest extends TestCase
         $query = 'baz=qux&one=two&three=four&five=six';
 
         $this->assertEquals(
-            'test/path/foo/bar_lqs_'.md5($query).'.html',
+            'test/path/domain.com/foo/bar_lqs_'.md5($query).'.html',
             $cacher->getFilePath('http://domain.com/foo/bar?'.$query)
         );
     }
@@ -92,12 +92,12 @@ class FileCacherTest extends TestCase
         ]);
 
         $this->assertEquals(
-            'test/path/foo/bar_.html',
+            'test/path/domain.com/foo/bar_.html',
             $cacher->getFilePath('http://domain.com/foo/bar?baz=qux&one=two')
         );
 
         $this->assertEquals(
-            'test/path/foo/bar_.html',
+            'test/path/domain.com/foo/bar_.html',
             $cacher->getFilePath('http://domain.com/foo/bar')
         );
     }
@@ -114,7 +114,7 @@ class FileCacherTest extends TestCase
         ]);
 
         $this->assertEquals(
-            'test/path/foo/bar_.html',
+            'test/path/domain.com/foo/bar_.html',
             $cacher->getFilePath('http://domain.com/foo/bar')
         );
     }
